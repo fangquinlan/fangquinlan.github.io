@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的文档网站</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="个人文档存档阅读网站">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
+  
+  <style>
+    /* 自定义字体 */
+    @font-face {
+      font-family: 'ZephText';
+      src: url('fonts/zephtextregular-webfont.woff2') format('woff2'),
+           url('fonts/zephtextitalic-webfont.woff2') format('woff2'),
+           url('fonts/zephtextbold-webfont.woff2') format('woff2'),
+           url('fonts/zephtextbolditalic-webfont.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'SimSun';
+      src: url('fonts/simsun.woff2') format('woff2'),
+           url('fonts/simsun-extb.woff2') format('woff2');
+	  unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    }
+
+    @font-face {
+      font-family: 'YuMincho';
+      src: url('fonts/YuMincho.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'KoPubWorldBatang';
+      src: url('fonts/KoPubWorld-Batang-Pro-Light.woff2') format('woff2');
+	  unicode-range: U+0000-089F, U+0980-FFFF; 
+    }
+
+    @font-face {
+      font-family: 'Shobhika';
+      src: url('fonts/Shobhika-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'SBLHebrew';
+      src: url('fonts/SBLHbrw.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Amiri';
+      src: url('fonts/Amiri-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'BabelStoneTibetan';
+      src: url('fonts/BabelStoneTibetan.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'MongolianBaiti';
+      src: url('fonts/MQG8F02.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Sarabun';
+      src: url('fonts/Sarabun-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'NotoSerif';
+      src: url('fonts/NotoSerif-Light.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Phetsarath';
+      src: url('fonts/Phetsarath-OT.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Pyidaungsu';
+      src: url('fonts/Pyidaungsu-2.5.3_Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'STIXTwoText';
+      src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'CharisSIL';
+      src: url('fonts/CharisSIL-Regular.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Bravura';
+      src: url('fonts/Bravura.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'BravuraText';
+      src: url('fonts/BravuraText.woff2') format('woff2');
+    }
+
+    /* RTL文本样式 */
+    [dir="rtl"] {
+      font-family: 'Amiri', 'SBLHebrew', serif;
+    }
+    
+    /* 垂直书写文本样式 */
+    .vertical-text {
+      writing-mode: vertical-rl;
+      font-family: 'MongolianBaiti', sans-serif;
+    }
+
+    /* 全局字体设置 */
+    body {
+      font-family: 'ZephText', 'SimSun', 'YuMincho', 'KoPubWorldBatang', 'Shobhika', 'SBLHebrew', 'Amiri', 'BabelStoneTibetan', 'MongolianBaiti', 'Sarabun', 'NotoSerif', 'Phetsarath', 'Pyidaungsu', 'STIXTwoText', 'CharisSIL', 'BravuraText', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '我的文档',
+      repo: 'https://github.com/fangquinlan/fangquinlan',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '没有结果',
+        depth: 6,
+      },
+      plugins: [
+        function(hook) {
+          hook.doneEach(function() {
+            if (typeof MathJax !== 'undefined') {
+              MathJax.typesetPromise();
+            }
+          });
+        }
+      ],
+      darklightTheme: {
+        siteFont : "ZephText",
+        defaultTheme : 'light',
+        codeFontFamily : 'Roboto Mono, Monaco, courier, monospace',
+        bodyFontSize : '17px',
+        dark: {
+          accent: '#42b983',
+          toogleBackground : '#ffffff',
+          background: '#091a28',
+          textColor: '#b4b4b4',
+          codeTextColor : '#ffffff',
+          codeBackgroundColor : '#0e2233',
+          borderColor : '#0d2538',
+          blockQuoteColor : '#858585',
+          highlightColor : '#d22778',
+          sidebarSublink : '#b4b4b4',
+          codeTypeColor : '#ffffff',
+          coverBackground : 'linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%,hsl(181, 100%, 85%) 100%)',
+          toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/sun.svg)'
+        },
+        light: {
+          accent: '#42b983',
+          toogleBackground : '#091a28',
+          background: '#ffffff',
+          textColor: '#34495e',
+          codeTextColor : '#525252',
+          codeBackgroundColor : '#f8f8f8',
+          borderColor : 'rgba(0, 0, 0, 0.07)',
+          blockQuoteColor : '#858585',
+          highlightColor : '#d22778',
+          sidebarSublink : '#b4b4b4',
+          codeTypeColor : '#091a28',
+          coverBackground : 'linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%,hsl(181, 100%, 85%) 100%)',
+          toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/moon.svg)'
+        }
+      }
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      },
+      startup: {
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady().then(() => {
+            console.log('MathJax initial typesetting complete');
+          });
+        }
+      }
+    };
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+
+  <!-- 引入 bidi.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bidi/0.3.3/bidi.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 选择所有需要处理双向文本的元素
+      var elements = document.querySelectorAll('.bidi-text');
+      elements.forEach(function(element) {
+        element.innerHTML = bidi(element.innerHTML);
+      });
+    });
+  </script>
+  
+</body>
+</html>

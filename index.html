@@ -6,7 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="个人文档存档阅读网站">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
+
+  <!-- 预连接和预加载 -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" href="fonts/zephtextregular-webfont.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" as="style">
+  <link rel="preload" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" as="style">
+
+  <!-- 内容安全策略 -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://cdn.jsdelivr.net; img-src 'self' data: https://cdn.jsdelivr.net https://cdnjs.cloudflare.com;">
+
   <!-- 使用 CSS Variables 管理主题颜色 -->
   <style>
     :root {
@@ -210,7 +220,13 @@
       font-family: var(--code-font);
     }
 
-    /* 其他自定义样式可以在这里添加 */
+    /* 隐藏右上角的 GitHub 图标 */
+    .github-icon, /* 替换为实际的类名 */
+    .navbar .github { /* 示例类名 */
+      display: none !important;
+    }
+
+    /* 自定义其他样式 */
   </style>
   
   <!-- Docsify 样式 -->
@@ -218,8 +234,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
 </head>
 <body>
-  <div id="app"></div>
+  <header>
+    <!-- 头部内容，可选 -->
+  </header>
+  
+  <nav aria-label="主导航">
+    <!-- 导航内容，可选 -->
+  </nav>
+  
+  <main>
+    <div id="app"></div>
+  </main>
+  
+  <footer>
+    <!-- 页脚内容，可选 -->
+  </footer>
 
+  <!-- Docsify 配置 -->
   <script>
     window.$docsify = {
       name: '我的文档',
@@ -282,11 +313,11 @@
   </script>
 
   <!-- Docsify 和插件脚本 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4" defer></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js" defer></script>
   
   <!-- MathJax 配置 -->
   <script>
@@ -309,11 +340,11 @@
       }
     };
   </script>
-  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js" defer></script>
 
   <!-- 引入 bidi.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bidi/0.3.3/bidi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bidi/0.3.3/bidi.min.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       // 选择所有需要处理双向文本的元素

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>我的文档网站</title>
@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
-
+  
   <style>
     /* 自定义字体 */
     @font-face {
@@ -23,7 +23,7 @@
       font-family: 'SimSun';
       src: url('fonts/simsun.woff2') format('woff2'),
            url('fonts/simsun-extb.woff2') format('woff2');
-      unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+	  unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
     }
 
     @font-face {
@@ -34,7 +34,7 @@
     @font-face {
       font-family: 'KoPubWorldBatang';
       src: url('fonts/KoPubWorld-Batang-Pro-Light.woff2') format('woff2');
-      unicode-range: U+0000-089F, U+0980-FFFF; 
+	  unicode-range: U+0000-089F, U+0980-FFFF; 
     }
 
     @font-face {
@@ -113,78 +113,9 @@
       font-family: 'MongolianBaiti', sans-serif;
     }
 
-    /* 仅针对主内容区域的全局字体设置 */
-    #app .markdown-section {
+    /* 全局字体设置 */
+    body {
       font-family: 'ZephText', 'SimSun', 'YuMincho', 'KoPubWorldBatang', 'Shobhika', 'SBLHebrew', 'Amiri', 'BabelStoneTibetan', 'MongolianBaiti', 'Sarabun', 'NotoSerif', 'Phetsarath', 'Pyidaungsu', 'STIXTwoText', 'CharisSIL', 'BravuraText', sans-serif;
-      font-size: 18px !important; /* 增大字体 */
-      line-height: 1.6 !important; /* 放宽行高 */
-      -webkit-font-smoothing: antialiased !important;
-      -moz-osx-font-smoothing: grayscale !important;
-      padding: 20px !important; /* 增加内边距 */
-      box-sizing: border-box;
-      max-width: 100% !important; /* 保持宽度自适应 */
-      margin: 0 !important; /* 移除外边距，避免影响整体布局 */
-    }
-
-    /* 增加段落间距 */
-    #app .markdown-section p {
-      margin-bottom: 1.5em !important;
-      font-size: 1.125rem !important; /* 约等于18px */
-      -webkit-font-smoothing: antialiased !important;
-      -moz-osx-font-smoothing: grayscale !important;
-    }
-
-    /* 增加标题间距和字体大小 */
-    #app .markdown-section h1,
-    #app .markdown-section h2,
-    #app .markdown-section h3,
-    #app .markdown-section h4,
-    #app .markdown-section h5,
-    #app .markdown-section h6 {
-      margin-top: 1.5em !important;
-      margin-bottom: 0.75em !important;
-      font-smooth: always;
-      -webkit-font-smoothing: antialiased !important;
-      -moz-osx-font-smoothing: grayscale !important;
-    }
-
-    /* 链接样式优化 */
-    #app .markdown-section a {
-      font-size: 1.125rem !important;
-      -webkit-font-smoothing: antialiased !important;
-      -moz-osx-font-smoothing: grayscale !important;
-    }
-
-    /* 增加列表间距 */
-    #app .markdown-section ul,
-    #app .markdown-section ol {
-      margin-bottom: 1.5em !important;
-      padding-left: 1.5em !important;
-    }
-
-    /* 增加代码块内边距 */
-    #app .markdown-section pre,
-    #app .markdown-section code {
-      font-size: 1rem !important;
-      line-height: 1.5 !important;
-    }
-
-    /* 响应式字体调整 */
-    @media (max-width: 768px) {
-      #app .markdown-section {
-        font-size: 16px !important;
-        padding: 15px !important;
-      }
-      #app .markdown-section p,
-      #app .markdown-section a,
-      #app .markdown-section h1,
-      #app .markdown-section h2,
-      #app .markdown-section h3,
-      #app .markdown-section h4,
-      #app .markdown-section h5,
-      #app .markdown-section h6 {
-        font-size: 1rem !important;
-      }
     }
   </style>
 </head>

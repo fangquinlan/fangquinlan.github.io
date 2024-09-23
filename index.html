@@ -41,7 +41,7 @@
       
       /* 布局变量 */
       --content-max-width: 700px; /* 设置内容最大宽度 */
-      --content-padding: 40px; /* 设置内容内边距 */
+      --content-padding: 20px; /* 设置内容内边距 */
     }
 
     /* 自定义字体 */
@@ -187,8 +187,8 @@
       transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     }
 
-    /* 内容容器样式 */
-    .content-container {
+    /* 内容容器样式 - 针对 Docsify 的 .markdown-section */
+    .markdown-section {
       max-width: var(--content-max-width);
       padding: 0 var(--content-padding);
       margin: 0 auto; /* 居中对齐 */
@@ -235,7 +235,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
 </head>
 <body>
-  <div id="app" class="content-container"></div>
+  <div id="app"></div>
 
   <script>
     window.$docsify = {

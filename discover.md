@@ -13,4 +13,3 @@ title: 发现
 ## 思维导图
 
 ![思维导图](assets/images/mindmap.jpg)
- 

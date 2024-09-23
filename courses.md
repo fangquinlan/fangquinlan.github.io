@@ -20,4 +20,3 @@ title: 课程
     </div>
   {% endfor %}
 </div>
- 

@@ -11,6 +11,6 @@ title: 首页
 
 ## 精选课程
 
-- [课程一](#)
-- [课程二](#)
-- [课程三](#)
+- [课程一：哲学与设计](/courses/example-syllabus)
+- [课程二：设计与社会](/courses/example-syllabus)
+- [课程三：未来设计趋势](/courses/example-syllabus)

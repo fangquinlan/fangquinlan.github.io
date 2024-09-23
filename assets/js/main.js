@@ -17,7 +17,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
   });
 });
 
-// 时间轴数据
+// 时间轴动画
 const timelineData = [
   { date: "2024-01", event: "课程一开始" },
   { date: "2024-03", event: "完成模块一" },
@@ -50,7 +50,7 @@ svg.selectAll("circle")
   .data(timelineData)
   .enter()
   .append("circle")
-  .attr("cx", (d, i) => 50 + i * ( (width - 100) / (timelineData.length - 1) ))
+  .attr("cx", (d, i) => 50 + i * ((width - 100) / (timelineData.length - 1)))
   .attr("cy", height / 2)
   .attr("r", 10)
   .attr("fill", "#ff5722")
@@ -63,8 +63,8 @@ svg.selectAll("circle")
     // 显示事件信息
     svg.append("text")
       .attr("id", "tooltip")
-      .attr("x", event.pageX)
-      .attr("y", event.pageY - 10)
+      .attr("x", event.pageX - svg.node().getBoundingClientRect().x)
+      .attr("y", event.pageY - svg.node().getBoundingClientRect().y - 10)
       .attr("text-anchor", "middle")
       .attr("fill", "#ffffff")
       .text(d.event);
@@ -78,4 +78,3 @@ svg.selectAll("circle")
     // 移除事件信息
     svg.select("#tooltip").remove();
   });
- 

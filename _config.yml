@@ -1,15 +1,14 @@
-title: Syllabus Showcase
-description: 展示一些文件
+title: Fang Quinlan's Syllabus Showcase
+description: 展示一些syllabus文件。
 baseurl: ""
 url: "https://fangquinlan.github.io"
 theme: minimal
 markdown: kramdown
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-include-cache
 collections:
   sylla:
     output: true
     permalink: /courses/:name/
-
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-include-cache

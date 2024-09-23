@@ -3,15 +3,15 @@
 
 **<p align="center">念奴娇·赤壁怀古</p>**
 
-> <p align="center">大江東去，浪淘盡、千古風流人物。</p> 
-> <p align="center">故壘西邊，人道是、三國周郎赤壁。 </p> 
-> <p align="center">亂石崩雲，驚濤裂岸，捲起千堆雪。 </p> 
-> <p align="center">江山如畫，一時多少豪傑！  </p>
+> <p align="center">大江东去，浪淘尽、千古风流人物。</p> 
+> <p align="center">故垒西边，人道是、三国周郎赤壁。 </p> 
+> <p align="center">乱石穿空，惊涛拍岸，卷起千堆雪。 </p> 
+> <p align="center">江山如画，一时多少豪杰！  </p>
 > 
-> <p align="center">遙想公瑾當年，小喬初嫁了，雄姿英發。 </p> 
-> <p align="center">羽扇綸巾，談笑間、強虜灰飛煙滅。  </p>
-> <p align="center">故國神遊，多情應笑我，早生華髮。  </p>
-> <p align="center">人間如夢，一樽還酹江月。</p>
+> <p align="center">遥想公瑾当年，小乔初嫁了，雄姿英发。 </p> 
+> <p align="center">羽扇纶巾，谈笑间、樯橹灰飞烟灭。  </p>
+> <p align="center">故国神游，多情应笑我，早生华发。  </p>
+> <p align="center">人生如梦，一尊还酹江月。</p>
 
 **<p align="center">斐多</p>**
 

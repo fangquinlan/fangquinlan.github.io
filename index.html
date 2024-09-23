@@ -41,7 +41,12 @@
       
       /* 布局变量 */
       --content-max-width: 700px; /* 设置内容最大宽度 */
-      --content-padding: 20px; /* 设置内容内边距 */
+      --content-padding: 40px; /* 设置内容内边距 */
+    }
+
+    /* 全局 box-sizing */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     /* 自定义字体 */
@@ -188,14 +193,17 @@
     }
 
     /* 内容容器样式 - 针对 Docsify 的 .markdown-section */
-    .markdown-section {
-      max-width: var(--content-max-width);
-      padding: 0 var(--content-padding);
-      margin: 0 auto; /* 居中对齐 */
+    body .markdown-section {
+      max-width: var(--content-max-width) !important;
+      padding: 0 var(--content-padding) !important;
+      margin: 0 auto !important;
+      font-size: var(--font-size-base) !important;
     }
 
     /* Typography Hierarchy */
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5,
+
+ h6 {
       font-weight: bold;
       margin-top: 1.5em;
       margin-bottom: 0.5em;

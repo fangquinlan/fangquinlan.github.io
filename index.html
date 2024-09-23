@@ -36,7 +36,7 @@
       
       /* 其他变量 */
       --font-size-base: 20px; /* 增大基础字体大小 */
-      --line-height-base: 3.0;
+      --line-height-base: 1.8;
       --transition-speed: 0.3s;
       
       /* 布局变量 */
@@ -171,6 +171,11 @@
       margin: 0;  /* 移除默认外边距 */
     }
 
+    /* 增加选择器优先级 */
+    body, p, h1, h2, h3, h4, h5, h6, li, blockquote, pre, code {
+      line-height: var(--line-height-base) !important;
+    }
+
     [data-theme="dark"] {
       background-color: var(--background-color-dark);
       color: var(--text-color-dark);
@@ -198,19 +203,20 @@
       padding: 0 var(--content-padding) !important;
       margin: 0 auto !important;
       font-size: var(--font-size-base) !important;
+      line-height: var(--line-height-base) !important; /* 确保容器应用 line-height */
     }
 
     /* Typography Hierarchy */
-    h1, h2, h3, h4, h5,
-
- h6 {
+    h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
       margin-top: 1.5em;
       margin-bottom: 0.5em;
+      line-height: var(--line-height-base) !important; /* 确保标题应用 line-height */
     }
 
     p {
       margin-bottom: 1em;
+      line-height: var(--line-height-base) !important; /* 确保段落应用 line-height */
     }
 
     /* 响应式设计 */
@@ -233,14 +239,11 @@
     /* 代码块样式 */
     pre, code {
       font-family: var(--code-font);
+      line-height: var(--line-height-base) !important; /* 确保代码块应用 line-height */
     }
 
     /* 其他自定义样式可以在这里添加 */
   </style>
-  
-  <!-- Docsify 样式 -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
 </head>
 <body>
   <div id="app"></div>

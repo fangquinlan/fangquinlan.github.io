@@ -1,126 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <title>我的文档网站</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="个人文档存档阅读网站">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
   
+  <!-- 使用 CSS Variables 管理主题颜色 -->
   <style>
+    :root {
+      /* 颜色变量 */
+      --primary-color: #42b983;
+      --accent-color: #d22778;
+      --background-color-light: #ffffff;
+      --background-color-dark: #091a28;
+      --text-color-light: #34495e;
+      --text-color-dark: #b4b4b4;
+      --code-background-light: #f8f8f8;
+      --code-background-dark: #0e2233;
+      --border-color-light: rgba(0, 0, 0, 0.07);
+      --border-color-dark: #0d2538;
+      --block-quote-color-light: #858585;
+      --block-quote-color-dark: #858585;
+      --highlight-color: var(--accent-color);
+      --sidebar-sublink-light: var(--text-color-light);
+      --sidebar-sublink-dark: var(--text-color-dark);
+      --code-type-color-light: #091a28;
+      --code-type-color-dark: #ffffff;
+      --cover-background: linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%, hsl(181, 100%, 85%) 100%);
+      
+      /* 字体变量 */
+      --site-font: 'ZephText', sans-serif;
+      --code-font: 'Roboto Mono', 'Monaco', 'Courier', monospace;
+      
+      /* 其他变量 */
+      --font-size-base: 17px;
+      --line-height-base: 1.6;
+      --transition-speed: 0.3s;
+    }
+
     /* 自定义字体 */
     @font-face {
       font-family: 'ZephText';
-      src: url('fonts/zephtextregular-webfont.woff2') format('woff2'),
-           url('fonts/zephtextitalic-webfont.woff2') format('woff2'),
-           url('fonts/zephtextbold-webfont.woff2') format('woff2'),
-           url('fonts/zephtextbolditalic-webfont.woff2') format('woff2');
+      src: url('fonts/zephtextregular-webfont.woff2') format('woff2');
+      font-display: swap;
+      font-weight: normal;
+      font-style: normal;
     }
-
+    /* 其他 @font-face 定义同理 */
     @font-face {
       font-family: 'SimSun';
       src: url('fonts/simsun.woff2') format('woff2'),
            url('fonts/simsun-extb.woff2') format('woff2');
-	  unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+      font-display: swap;
+      unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
     }
 
     @font-face {
       font-family: 'YuMincho';
       src: url('fonts/YuMincho.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'KoPubWorldBatang';
       src: url('fonts/KoPubWorld-Batang-Pro-Light.woff2') format('woff2');
-	  unicode-range: U+0000-089F, U+0980-FFFF; 
+      font-display: swap;
+      unicode-range: U+0000-089F, U+0980-FFFF; 
     }
 
     @font-face {
       font-family: 'Shobhika';
       src: url('fonts/Shobhika-Regular.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'SBLHebrew';
       src: url('fonts/SBLHbrw.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Amiri';
       src: url('fonts/Amiri-Regular.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'BabelStoneTibetan';
       src: url('fonts/BabelStoneTibetan.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'MongolianBaiti';
       src: url('fonts/MQG8F02.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Sarabun';
       src: url('fonts/Sarabun-Regular.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'NotoSerif';
       src: url('fonts/NotoSerif-Light.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Phetsarath';
       src: url('fonts/Phetsarath-OT.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Pyidaungsu';
       src: url('fonts/Pyidaungsu-2.5.3_Regular.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'STIXTwoText';
       src: url('fonts/STIXTwoText-Regular.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'CharisSIL';
       src: url('fonts/CharisSIL-Regular.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Bravura';
       src: url('fonts/Bravura.woff2') format('woff2');
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'BravuraText';
       src: url('fonts/BravuraText.woff2') format('woff2');
+      font-display: swap;
+    }
+
+    /* 全局字体设置 */
+    body {
+      font-family: var(--site-font);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      background-color: var(--background-color-light);
+      color: var(--text-color-light);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    }
+
+    [data-theme="dark"] {
+      background-color: var(--background-color-dark);
+      color: var(--text-color-dark);
     }
 
     /* RTL文本样式 */
     [dir="rtl"] {
       font-family: 'Amiri', 'SBLHebrew', serif;
     }
-    
+
     /* 垂直书写文本样式 */
     .vertical-text {
       writing-mode: vertical-rl;
       font-family: 'MongolianBaiti', sans-serif;
     }
 
-    /* 全局字体设置 */
-    body {
-      font-family: 'ZephText', 'SimSun', 'YuMincho', 'KoPubWorldBatang', 'Shobhika', 'SBLHebrew', 'Amiri', 'BabelStoneTibetan', 'MongolianBaiti', 'Sarabun', 'NotoSerif', 'Phetsarath', 'Pyidaungsu', 'STIXTwoText', 'CharisSIL', 'BravuraText', sans-serif;
+    /* 主题切换过渡 */
+    body, .docsify-darklight-theme {
+      transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     }
+
+    /* Typography Hierarchy */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: bold;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
+
+    /* 代码块样式 */
+    pre, code {
+      font-family: var(--code-font);
+    }
+
+    /* 其他自定义样式可以在这里添加 */
   </style>
+  
+  <!-- Docsify 样式 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
 </head>
 <body>
   <div id="app"></div>
+
   <script>
     window.$docsify = {
       name: '我的文档',
@@ -144,48 +243,52 @@
         }
       ],
       darklightTheme: {
-        siteFont : "ZephText",
-        defaultTheme : 'light',
-        codeFontFamily : 'Roboto Mono, Monaco, courier, monospace',
-        bodyFontSize : '17px',
+        siteFont: "ZephText",
+        defaultTheme: 'light',
+        codeFontFamily: 'var(--code-font)',
+        bodyFontSize: 'var(--font-size-base)',
         dark: {
-          accent: '#42b983',
-          toogleBackground : '#ffffff',
-          background: '#091a28',
-          textColor: '#b4b4b4',
-          codeTextColor : '#ffffff',
-          codeBackgroundColor : '#0e2233',
-          borderColor : '#0d2538',
-          blockQuoteColor : '#858585',
-          highlightColor : '#d22778',
-          sidebarSublink : '#b4b4b4',
-          codeTypeColor : '#ffffff',
-          coverBackground : 'linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%,hsl(181, 100%, 85%) 100%)',
-          toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/sun.svg)'
+          accent: 'var(--accent-color)',
+          toogleBackground: '#ffffff',
+          background: 'var(--background-color-dark)',
+          textColor: 'var(--text-color-dark)',
+          codeTextColor: '#ffffff',
+          codeBackgroundColor: 'var(--code-background-dark)',
+          borderColor: 'var(--border-color-dark)',
+          blockQuoteColor: 'var(--block-quote-color-dark)',
+          highlightColor: 'var(--highlight-color)',
+          sidebarSublink: 'var(--sidebar-sublink-dark)',
+          codeTypeColor: 'var(--code-type-color-dark)',
+          coverBackground: 'var(--cover-background)',
+          toogleImage: 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/sun.svg)'
         },
         light: {
-          accent: '#42b983',
-          toogleBackground : '#091a28',
-          background: '#ffffff',
-          textColor: '#34495e',
-          codeTextColor : '#525252',
-          codeBackgroundColor : '#f8f8f8',
-          borderColor : 'rgba(0, 0, 0, 0.07)',
-          blockQuoteColor : '#858585',
-          highlightColor : '#d22778',
-          sidebarSublink : '#b4b4b4',
-          codeTypeColor : '#091a28',
-          coverBackground : 'linear-gradient(to left bottom, hsl(118, 100%, 85%) 0%,hsl(181, 100%, 85%) 100%)',
-          toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/moon.svg)'
+          accent: 'var(--accent-color)',
+          toogleBackground: 'var(--background-color-dark)',
+          background: 'var(--background-color-light)',
+          textColor: 'var(--text-color-light)',
+          codeTextColor: '#525252',
+          codeBackgroundColor: 'var(--code-background-light)',
+          borderColor: 'var(--border-color-light)',
+          blockQuoteColor: 'var(--block-quote-color-light)',
+          highlightColor: 'var(--highlight-color)',
+          sidebarSublink: 'var(--sidebar-sublink-light)',
+          codeTypeColor: 'var(--code-type-color-light)',
+          coverBackground: 'var(--cover-background)',
+          toogleImage: 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/moon.svg)'
         }
       }
     }
   </script>
+
+  <!-- Docsify 和插件脚本 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  
+  <!-- MathJax 配置 -->
   <script>
     window.MathJax = {
       tex: {
@@ -220,6 +323,5 @@
       });
     });
   </script>
-  
 </body>
 </html>

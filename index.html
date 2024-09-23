@@ -158,6 +158,10 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      hyphens: auto;
+      text-align: justify;
+      text-justify: inter-word;
+      word-wrap: break-word;
     }
 
     [data-theme="dark"] {
@@ -186,10 +190,18 @@
       font-weight: bold;
       margin-top: 1.5em;
       margin-bottom: 0.5em;
+      orphans: 3;
+      widows: 3;
+      hyphens: auto;
+      line-break: strict;
     }
 
     p {
       margin-bottom: 1em;
+      orphans: 3;
+      widows: 3;
+      hyphens: auto;
+      line-break: strict;
     }
 
     /* 响应式设计 */
@@ -208,6 +220,12 @@
     /* 代码块样式 */
     pre, code {
       font-family: var(--code-font);
+    }
+
+    /* 防止标题和段落孤行 */
+    .prevent-widow {
+      display: inline-block;
+      white-space: nowrap;
     }
 
     /* 其他自定义样式可以在这里添加 */
@@ -239,6 +257,28 @@
             if (typeof MathJax !== 'undefined') {
               MathJax.typesetPromise();
             }
+          });
+        },
+        function(hook, vm) {
+          // 插件：防止标题和段落孤行
+          hook.doneEach(function() {
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(function(heading) {
+              const words = heading.innerHTML.split(' ');
+              if (words.length > 1) {
+                const lastWord = words.pop();
+                heading.innerHTML = words.join(' ') + ' <span class="prevent-widow">' + lastWord + '</span>';
+              }
+            });
+
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(function(paragraph) {
+              const words = paragraph.innerHTML.split(' ');
+              if (words.length > 1) {
+                const lastWord = words.pop();
+                paragraph.innerHTML = words.join(' ') + ' <span class="prevent-widow">' + lastWord + '</span>';
+              }
+            });
           });
         }
       ],
@@ -323,5 +363,6 @@
       });
     });
   </script>
+  
 </body>
 </html>

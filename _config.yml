@@ -2,7 +2,7 @@ title: Fang Quinlan's Syllabus Showcase
 description: 展示一些syllabus文件。
 baseurl: ""
 url: "https://fangquinlan.github.io"
-theme: minimal
+theme: jekyll-theme-minimal
 markdown: kramdown
 collections:
   sylla:

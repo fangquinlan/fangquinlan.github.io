@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="main.jpg" alt="main" width="500">
 </div>
 
 **<p align="center">念奴娇·赤壁怀古</p>**

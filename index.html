@@ -35,9 +35,13 @@
       --code-font: 'Roboto Mono', 'Monaco', 'Courier', monospace;
       
       /* 其他变量 */
-      --font-size-base: 17px;
+      --font-size-base: 18px; /* 增大基础字体大小 */
       --line-height-base: 1.6;
       --transition-speed: 0.3s;
+      
+      /* 布局变量 */
+      --content-max-width: 800px; /* 设置内容最大宽度 */
+      --content-padding: 20px; /* 设置内容内边距 */
     }
 
     /* 自定义字体 */
@@ -158,6 +162,8 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+      padding: 0; /* 移除默认内边距 */
+      margin: 0;  /* 移除默认外边距 */
     }
 
     [data-theme="dark"] {
@@ -181,6 +187,13 @@
       transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     }
 
+    /* 内容容器样式 */
+    .content-container {
+      max-width: var(--content-max-width);
+      padding: 0 var(--content-padding);
+      margin: 0 auto; /* 居中对齐 */
+    }
+
     /* Typography Hierarchy */
     h1, h2, h3, h4, h5, h6 {
       font-weight: bold;
@@ -194,14 +207,18 @@
 
     /* 响应式设计 */
     @media (max-width: 768px) {
-      body {
-        font-size: 16px;
+      :root {
+        --font-size-base: 16px; /* 小屏幕时调整字体大小 */
+        --content-padding: 15px; /* 小屏幕时调整内边距 */
+        --content-max-width: 90%; /* 小屏幕时调整最大宽度 */
       }
     }
 
     @media (max-width: 480px) {
-      body {
-        font-size: 14px;
+      :root {
+        --font-size-base: 14px; /* 更小屏幕时进一步调整字体大小 */
+        --content-padding: 10px; /* 更小屏幕时进一步调整内边距 */
+        --content-max-width: 95%; /* 更小屏幕时调整最大宽度 */
       }
     }
 
@@ -218,7 +235,7 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" title="docsify-darklight-theme" type="text/css"/>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app" class="content-container"></div>
 
   <script>
     window.$docsify = {
@@ -266,7 +283,7 @@
           accent: 'var(--accent-color)',
           toogleBackground: 'var(--background-color-dark)',
           background: 'var(--background-color-light)',
-          textColor: 'var(--text-color-light)',
+          textColor : 'var(--text-color-light)',
           codeTextColor: '#525252',
           codeBackgroundColor: 'var(--code-background-light)',
           borderColor: 'var(--border-color-light)',
